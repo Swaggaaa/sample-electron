@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const puppeteer = require('puppeteer-core')
 
 function createWindow () {
   // Create the browser window.
@@ -19,11 +20,24 @@ function createWindow () {
   // mainWindow.webContents.openDevTools()
 }
 
+const launchPuppeteer = async () => {
+  const launchOptions = { 
+    headless: false,
+    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+  }
+
+  const browser = await puppeteer.launch(launchOptions)
+  const page = await browser.newPage();
+
+  await page.setViewport({width: 1920, height: 1080});
+  await page.goto('https://google.es')
+}
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
+  launchPuppeteer();
   
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
