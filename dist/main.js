@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 function createWindow() {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
@@ -27,11 +27,11 @@ function createWindow() {
 }
 const launchPuppeteer = () => __awaiter(this, void 0, void 0, function* () {
     const launchOptions = {
-        headless: false,
-        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+        headless: false
     };
     const browser = yield puppeteer.launch(launchOptions);
     const page = yield browser.newPage();
+    console.log("Updated shit yy");
     yield page.setViewport({ width: 1920, height: 1080 });
     yield page.goto('https://google.es');
 });

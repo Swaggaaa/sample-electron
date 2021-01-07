@@ -1,7 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
-const puppeteer = require('puppeteer-core')
+const puppeteer = require('puppeteer')
 
 function createWindow () {
   // Create the browser window.
@@ -22,12 +22,13 @@ function createWindow () {
 
 const launchPuppeteer = async () => {
   const launchOptions = { 
-    headless: false,
-    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    headless: false
   }
 
   const browser = await puppeteer.launch(launchOptions)
   const page = await browser.newPage();
+
+  console.log("Updated shit yy")
 
   await page.setViewport({width: 1920, height: 1080});
   await page.goto('https://google.es')
