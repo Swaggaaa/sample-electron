@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "puppeteer": "^5.5.0",
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   }
 }
