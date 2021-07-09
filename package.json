@@ -10,7 +10,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@types/node": "^14.14.20",
+    "@types/node": "^16.3.0",
     "@types/puppeteer": "^5.4.2",
     "electron": "^11.1.1",
     "electron-packager": "^15.2.0",
